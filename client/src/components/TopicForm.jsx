@@ -3,16 +3,11 @@ import VideoPopUp from '../page/VideoPopUp';
 
 function TopicForm() {
   const [surveyData, setSurveyData] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [showVideoPopup, setShowVideoPopup] = useState(false);
 
   const handleSubmit = (selectedOptions) => {
     setSurveyData([...surveyData, selectedOptions]);
-    setShowModal(true);
-
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
+    setShowVideoPopup(true);
   };
 
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -49,7 +44,7 @@ function TopicForm() {
         <Option code={'Funny Things'} />
         <Option code={'A surprise secret topic?'} />
         <button onClick={handleSubmit} style={{borderRadius: 10, marginTop: 20, marginBottom: 20}} >Submit</button>
-        <VideoPopUp show={showModal} handleClose={handleCloseModal} topics={selectedOptions} />
+        {showVideoPopup && <VideoPopUp topics={selectedOptions} />}
     </div>
   )
 }

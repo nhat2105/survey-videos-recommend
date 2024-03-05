@@ -1,148 +1,139 @@
 import React from 'react'
 
-function VideoPopUp({ handleClose, show, topics}) {
+function VideoPopUp({topics}) {
+  const show = true;
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   let videoUrl;
+  let picUrl;
 
   const videoBased = [
     {
-        id: 1,
-        code: "aniVid1",
-        url: "",
+        key: "ani",
+        urlVid: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1433215160639804"],
+        urlPic: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1433215160639804"],
     },
 
     {
-        id: 2,
-        code: "aniVid2",
-        url: "",
+        key: "art",
+        urlVid: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
+        urlPic: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
     },
 
     {
-        id: 3,
-        code: "aniPic1",
-        url: "",
+        key: "children",
+        urlVid: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
+        urlPic: ["https://www.tiktok.com/embed/v2/6997911678461447430",],
     },
 
     {
-        id: 4,
-        code: "aniPic2",
-        url: "",
+        key: "funny",
+        urlVid: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
+        urlPic: ["https://www.tiktok.com/embed/v2/6997911678461447430"],
     },
 
     {
-        id: 5,
-        code: "artVid1",
-        url: "",
+        key: "surprise",
+        urlVid: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
+        urlPic: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
     },
-
-    {
-        id: 6,
-        code: "artVid2",
-        url: "",
-    },
-
-    {
-        id: 7,
-        code: "artPic1",
-        url: "",
-    },
-
-    {
-        id: 8,
-        code: "artPic2",
-        url: "",
-    },
-
-    {
-        id: 9,
-        code: "childrenVid1",
-        url: "",
-    },
-
-    {
-        id: 10,
-        code: "childrenVid2",
-        url: "",
-    },
-
-    {
-        id: 11,
-        code: "childrenPic1",
-        url: "",
-    },
-
-    {
-        id: 12,
-        code: "childrenPic2",
-        url: "",
-    },
-
-    {
-        id: 13,
-        code: "funnyVid1",
-        url: "",
-    },
-
-    {
-        id: 14,
-        code: "funnyVid2",
-        url: "",
-    },
-
-    {
-        id: 15,
-        code: "funnyPic1",
-        url: "",
-    },
-
-    {
-        id: 16,
-        code: "funnyPic2",
-        url: "",
-    },
-
-    {
-        id: 17,
-        code: "surpriseVid1",
-        url: "",
-    },
-
-    {
-        id: 18,
-        code: "surpriseVid2",
-        url: "",
-    },
-
-    {
-        id: 19,
-        code: "surpisePic1",
-        url: "",
-    },
-
-    {
-        id: 20,
-        code: "surprisePic2",
-        url: "",
-    },
-
-
 
   ]
-
-  if (topics.length === 0){
-    //show surprise
-  } else if (topics.length === 1){
-    //show the only topic (randomized)
-  } else {
-    //pick random from chosen topics
-    //auto do wholesome if it is in the array
+  function getRandomInt(min, max) {
+    min = Math.ceil(min); // Round up to the nearest integer
+    max = Math.floor(max); // Round down to the nearest integer
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  let randomId;
+  if (topics){
+    if (topics.length === 0){
+      //show surprise if nothing is chosen
+      const rand = getRandomInt(0, 1);
+      if (rand === 0){
+        randomId = getRandomInt(0, videoBased[4].urlVid.length - 1)
+        videoUrl = videoBased[4].urlVid[randomId]
+      }
+      else if (rand === 1){
+        randomId = getRandomInt(0, videoBased[4].urlPic.length - 1)
+        videoUrl= videoBased[4].urlPic[randomId]
+      }
+
+    } else if (topics.length === 1){
+      //show the only topic (randomized)
+      let id = 0;
+      let key = topics[0];
+      switch (key){
+        case key.includes("Animals"):
+          id = 0;
+          break;
+        case key.includes("Art"):
+          id = 1;
+          break;
+        case key.includes("C"):
+          id = 2;
+          break;
+        case key.includes("sur"):
+          id = 4;
+          break;
+        default:
+          id = 3;
+          break; 
+      }
+      const rand = getRandomInt(0, 1);
+      if (rand === 0){
+        randomId = getRandomInt(0, videoBased[id].urlVid.length - 1)
+        videoUrl = videoBased[id].urlVid[randomId]
+      }
+      else if (rand === 1){
+        randomId = getRandomInt(0, videoBased[id].urlPic.length - 1)
+        videoUrl= videoBased[id].urlPic[randomId]
+      }
+    } else {
+      //auto do wholesome if it is in the array
+      let surprise = false;
+      let randomId = getRandomInt(0, topics.length - 1)
+      let rand = getRandomInt(0, 1);
+
+      for (var i = 0; i < topics.length; i++){
+        if (topics[i].includes("surprise"))surprise = true;
+      }
+      if (surprise){
+        rand = getRandomInt(0, 1);
+        if (rand === 0){
+          randomId = getRandomInt(0, videoBased[4].urlVid.length - 1)
+          videoUrl = videoBased[4].urlVid[randomId]
+        }
+        else if (rand === 1){
+          randomId = getRandomInt(0, videoBased[4].urlPic.length - 1)
+          videoUrl= videoBased[4].urlPic[randomId]
+        }
+      }
+
+      //pick random from chosen topics
+        if (rand === 0){
+          rand = getRandomInt(0, videoBased[randomId].urlVid.length - 1)
+          videoUrl = videoBased[randomId].urlVid[rand]
+        }
+        else if (rand === 1){
+          rand = getRandomInt(0, videoBased[randomId].urlPic.length - 1)
+          videoUrl= videoBased[randomId].urlPic[rand]
+        }
+      }
+    }
+  console.log("Here")
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <button onClick={handleClose}>Close</button>
-        <iframe title="Video" width="560" height="315" src={videoUrl} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        { videoUrl
+          &&
+          <iframe title="Video" width="315" height="560" src={videoUrl} allow="autoplay; encrypted-media" allowFullScreen></iframe>
+        }
+
+        { picUrl
+          &&
+          <img src={picUrl}  height="315" width="560"  />
+        }
+        
       </section>
     </div>
   );
