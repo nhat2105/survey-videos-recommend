@@ -10,31 +10,31 @@ function VideoPopUp({topics}) {
     {
         key: "ani",
         urlVid: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1433215160639804"],
-        urlPic: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1433215160639804"],
+        urlPic: ["https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg"],
     },
 
     {
         key: "art",
         urlVid: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
-        urlPic: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
+        urlPic: ["https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg"],
     },
 
     {
         key: "children",
         urlVid: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
-        urlPic: ["https://www.tiktok.com/embed/v2/6997911678461447430",],
+        urlPic: ["https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg",],
     },
 
     {
         key: "funny",
         urlVid: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
-        urlPic: ["https://www.tiktok.com/embed/v2/6997911678461447430"],
+        urlPic: ["https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg"],
     },
 
     {
         key: "surprise",
-        urlVid: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
-        urlPic: ["https://www.tiktok.com/embed/v2/6997911678461447430", "https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
+        urlVid: ["https://youtube.com/embed/8VZxXKHDzxs?si=m8wjKuZib53rzNCT"],
+        urlPic: ["https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg"],
     },
 
   ]
@@ -55,30 +55,32 @@ function VideoPopUp({topics}) {
       }
       else if (rand === 1){
         randomId = getRandomInt(0, videoBased[4].urlPic.length - 1)
-        videoUrl= videoBased[4].urlPic[randomId]
+        picUrl = videoBased[4].urlPic[randomId]
       }
 
-    } else if (topics.length === 1){
+    } 
+    else if (topics.length === 1)
+    {
       //show the only topic (randomized)
       let id = 0;
       let key = topics[0];
-      switch (key){
-        case key.includes("Animals"):
-          id = 0;
-          break;
-        case key.includes("Art"):
-          id = 1;
-          break;
-        case key.includes("C"):
-          id = 2;
-          break;
-        case key.includes("sur"):
-          id = 4;
-          break;
-        default:
-          id = 3;
-          break; 
+      if (key.includes("Ani")){
+        id = 0
       }
+      else if (key.includes("Art")){
+        id = 1
+      }
+      else if (key.includes("C")){
+        id = 2
+      }
+
+      else if (key.includes("sur")){
+        id = 4
+      }
+      else {
+        id = 3
+      }
+
       const rand = getRandomInt(0, 1);
       if (rand === 0){
         randomId = getRandomInt(0, videoBased[id].urlVid.length - 1)
@@ -86,9 +88,11 @@ function VideoPopUp({topics}) {
       }
       else if (rand === 1){
         randomId = getRandomInt(0, videoBased[id].urlPic.length - 1)
-        videoUrl= videoBased[id].urlPic[randomId]
+        picUrl= videoBased[id].urlPic[randomId]
       }
-    } else {
+    } 
+    else if (topics.length > 1)
+    {
       //auto do wholesome if it is in the array
       let surprise = false;
       let randomId = getRandomInt(0, topics.length - 1)
@@ -97,6 +101,7 @@ function VideoPopUp({topics}) {
       for (var i = 0; i < topics.length; i++){
         if (topics[i].includes("surprise"))surprise = true;
       }
+
       if (surprise){
         rand = getRandomInt(0, 1);
         if (rand === 0){
@@ -105,33 +110,41 @@ function VideoPopUp({topics}) {
         }
         else if (rand === 1){
           randomId = getRandomInt(0, videoBased[4].urlPic.length - 1)
-          videoUrl= videoBased[4].urlPic[randomId]
+          picUrl = videoBased[4].urlPic[randomId]
         }
       }
-
-      //pick random from chosen topics
+      
+      else if (!surprise)
+      {
+        //pick random from chosen topics
         if (rand === 0){
           rand = getRandomInt(0, videoBased[randomId].urlVid.length - 1)
           videoUrl = videoBased[randomId].urlVid[rand]
         }
         else if (rand === 1){
           rand = getRandomInt(0, videoBased[randomId].urlPic.length - 1)
-          videoUrl= videoBased[randomId].urlPic[rand]
+          picUrl = videoBased[randomId].urlPic[rand]
         }
       }
     }
-  console.log("Here")
+  }
+  
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        { videoUrl
+        { videoUrl && !videoUrl.includes("facebook")
           &&
           <iframe title="Video" width="315" height="560" src={videoUrl} allow="autoplay; encrypted-media" allowFullScreen></iframe>
         }
 
+        { videoUrl && videoUrl.includes("facebook")
+          &&
+          <iframe title="Video" width="560" height="315" src={videoUrl} allow="autoplay; encrypted-media" allowFullScreen></iframe>
+        }
+
         { picUrl
           &&
-          <img src={picUrl}  height="315" width="560"  />
+          <img src={picUrl} width="375" />
         }
         
       </section>
