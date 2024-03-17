@@ -5,6 +5,7 @@ import '../style/modal.css';
 
 function Aftermath({code, show, onClose}) {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
+    console.log('Code: ', code)
 
   return (
     <div className={showHideClassName}>

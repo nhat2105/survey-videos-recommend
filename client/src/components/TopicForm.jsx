@@ -10,6 +10,7 @@ function TopicForm() {
   const [evalu, setEval] = useState(false);
   const [evalEmo, setEvalEmo] = useState("")
   const [aftermath, setAftermath] = useState(null);
+  const [neg, setNeg] = useState(false);
 
   const handleSubmit = (selectedOptions) => {
     setSurveyData([...surveyData, selectedOptions]);
@@ -24,19 +25,21 @@ function TopicForm() {
       if (res > 0){
         setAftermath(true)
       }
-      else setAftermath(false)
+      else setNeg(true)
     }
     setFirstTime(false);
   };
 
   //tear down method
   const stopFeedback = () =>{
-    setAftermath(null);
+    setAftermath(false);
     setFirstTime(true);
-    setEvalEmo(false);
+    setEvalEmo("");
     setEval(false);
     setShowVideoPopup(false);
-
+    setNeg(false)
+    setEmotion("");
+    setSelectedOptions([])
   }
 
   const stopPopUp = () =>{
@@ -108,7 +111,7 @@ function TopicForm() {
         <button onClick={(firstTime || evalu) ? handleEmotionSubmit : handleSubmit} 
         style={{borderRadius: 10, marginTop: 20, marginBottom: firstTime? 205: 70}} >Submit</button>
         {showVideoPopup && <VideoPopUp topics={selectedOptions}  show={showVideoPopup} onClose={stopPopUp} />}
-        {aftermath && <Aftermath code={aftermath} show={evalu} onClose={stopFeedback} />}
+        {(aftermath || neg) && <Aftermath code={aftermath} show={evalu} onClose={stopFeedback} />}
     </div>
   )
 }
