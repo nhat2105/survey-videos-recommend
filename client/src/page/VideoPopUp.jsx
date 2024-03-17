@@ -7,9 +7,9 @@ import gdpt from "../assets/gdpt.jpg"
 import meow2 from "../assets/meow2.mp4"
 import euro from "../assets/euroFunny.mp4"
 import breakdown from "../assets/amazingGreatJob.mp4"
+import '../style/modal.css'; 
 
-function VideoPopUp({topics}) {
-  const show = true;
+function VideoPopUp({topics, show, onClose}) {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   let videoUrl;
   let picUrl;
@@ -34,8 +34,7 @@ function VideoPopUp({topics}) {
         urlVid: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=222451072977543",
                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=276637624499346",
                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1826813627749996",
-                "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=480596147405740", 
-                "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1745315299135491",
+                "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=480596147405740",
                 countHigher],
                 
         urlPic: ["https://cdn.acidcow.com/pics/20210518/1621360852_8linlv409m.jpg",],
@@ -158,16 +157,21 @@ function VideoPopUp({topics}) {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        { videoUrl
-          &&
-          <iframe title="Video" width="315" height="510" src={videoUrl} allow="autoplay; encrypted-media" allowFullScreen></iframe>
-        }
+      { topics && (
+          <>
+            <div><button className="exit-button" onClick={onClose}>X</button></div>
+            {/* Render video or image */}
+            { videoUrl && (
+              <iframe title="Video" width="315" height="510" src={videoUrl} allow="autoplay; encrypted-media" allowFullScreen></iframe>
+            )}
+            { picUrl && (
+              <img src={picUrl} width="375" alt="" />
+            )}
+            {/* Add exit button */}
+            
+          </>
+        )}
 
-        { picUrl
-          &&
-          <img src={picUrl} width="375" alt= ""/>
-        }
-        
       </section>
     </div>
   );
