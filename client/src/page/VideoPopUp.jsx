@@ -19,7 +19,8 @@ function VideoPopUp({topics, show, onClose}) {
         key: "ani",
         urlVid: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1433215160639804",
                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=222451072977543",
-                "https://www.youtube.com/embed/sdS6DrZV_oQ",],
+                "https://www.youtube.com/embed/sdS6DrZV_oQ",
+                "https://www.tiktok.com/embed/v2/7060495050425273606?q=wholesome&t=1710819239073"],
         urlPic: ["https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg"],
     },
 
@@ -55,6 +56,7 @@ function VideoPopUp({topics, show, onClose}) {
     {
         key: "surprise",
         urlVid: [ wholesome_us,
+                 "https://www.tiktok.com/embed/v2/7060495050425273606?q=wholesome&t=1710819239073",
                  "https://www.tiktok.com/embed/v2/6995520840431308038",
                  "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=222451072977543"],
         urlPic: [ "https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg",

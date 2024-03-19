@@ -82,16 +82,16 @@ function TopicForm() {
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyItems: 'center'}}>
         {firstTime === true && evalu === false && 
-          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyItems: 'center'}}>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyItems: 'center', 
+          zIndex: 1, position: 'absolute', top: 200}}>
             <label style={{marginTop: 30, fontSize: 20}}>From 1-10, rate your level of happiness right now:</label>
-              <div>
-                <input style={{marginTop: 50}} value={emotion} onChange={handleEmotionChange} type="textfield"/>
-              </div>
+                <input style={{marginTop: 20}} value={emotion} onChange={handleEmotionChange} type="textfield"/>
           </div>
         }
 
         {evalu === true && 
-          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyItems: 'center'}}>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyItems: 'center', 
+          zIndex: 1, position: 'absolute', top: 200}}>
             <label style={{marginTop: 30, fontSize: 20}}>Now let's do this again. From 1-10, rate your level of happiness right now:</label>
               <div>
                 <input style={{marginTop: 50}} value={evalEmo} onChange={handleEmotionChange} type="textfield"/>
@@ -100,7 +100,9 @@ function TopicForm() {
         }
 
         {firstTime === false && evalu === false &&
-          <div>
+          <div style={{zIndex: 1, position: 'absolute', top: 175, backgroundColor: 'white', borderRadius: 10}}>
+            <label style={{marginLeft: 5, marginRight: 5, marginTop: 10, marginBottom: 10,
+               fontSize: 20, fontWeight: 600}}>Choose topic(s) that you are interested in</label>
             <Option code={'Animals'} />
             <Option code={'Art'} />
             <Option code={'Children'} />
@@ -109,7 +111,8 @@ function TopicForm() {
           </div>
         }
         <button onClick={(firstTime || evalu) ? handleEmotionSubmit : handleSubmit} 
-        style={{borderRadius: 10, marginTop: 20, marginBottom: firstTime? 205: 70}} >Submit</button>
+        style={{borderRadius: 10, marginTop: 20, position: 'absolute', zIndex: 1,
+         top: 400}} >Submit</button>
         {showVideoPopup && <VideoPopUp topics={selectedOptions}  show={showVideoPopup} onClose={stopPopUp} />}
         {(aftermath || neg) && <Aftermath code={aftermath} show={evalu} onClose={stopFeedback} />}
     </div>
