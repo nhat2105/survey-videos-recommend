@@ -6,6 +6,7 @@ import cute from "../assets/5ofus.jpg"
 import gdpt from "../assets/gdpt.jpg"
 import meow2 from "../assets/meow2.mp4"
 import euro from "../assets/euroFunny.mp4"
+import f_slay from "../assets/f_slay.mp4"
 import breakdown from "../assets/amazingGreatJob.mp4"
 import '../style/modal.css'; 
 
@@ -45,10 +46,10 @@ function VideoPopUp({topics, show, onClose}) {
         key: "funny",
         urlVid: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=785776076226715", 
                  "https://www.tiktok.com/embed/v2/7190882557460827434",
-                  meow2, euro, breakdown,
+                  meow2, euro, breakdown, f_slay,
                  "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=621559299107690",
                  "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1349472412309482",
-                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=743277186854207"],
+                 ""],
 
         urlPic: [gdpt],
     },
