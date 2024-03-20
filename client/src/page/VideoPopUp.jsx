@@ -8,6 +8,7 @@ import meow2 from "../assets/meow2.mp4"
 import euro from "../assets/euroFunny.mp4"
 import f_slay from "../assets/f_slay.mp4"
 import breakdown from "../assets/amazingGreatJob.mp4"
+import mother from "../assets/mother.jpg"
 import '../style/modal.css'; 
 
 function VideoPopUp({topics, show, onClose}) {
@@ -51,7 +52,7 @@ function VideoPopUp({topics, show, onClose}) {
                  "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1349472412309482",
                  ""],
 
-        urlPic: [gdpt],
+        urlPic: [gdpt, mother],
     },
 
     {
@@ -61,8 +62,8 @@ function VideoPopUp({topics, show, onClose}) {
                  "https://www.tiktok.com/embed/v2/6995520840431308038",
                  "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=222451072977543"],
         urlPic: [ "https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg",
-                  "https://i.kym-cdn.com/photos/images/newsfeed/001/592/011/e75.png",
-                cute],
+                  cute, 
+                  mother],
     },
 
   ]
