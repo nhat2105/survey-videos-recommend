@@ -9,6 +9,7 @@ import euro from "../assets/euroFunny.mp4"
 import f_slay from "../assets/f_slay.mp4"
 import breakdown from "../assets/amazingGreatJob.mp4"
 import mother from "../assets/mother.jpg"
+import howls from "../assets/howls.jpg"
 import '../style/modal.css'; 
 
 function VideoPopUp({topics, show, onClose}) {
@@ -20,15 +21,16 @@ function VideoPopUp({topics, show, onClose}) {
     {
         key: "ani",
         urlVid: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1433215160639804",
-                "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=222451072977543",
-                "https://www.youtube.com/embed/sdS6DrZV_oQ",
+                "https://www.youtube.com/embed/sdS6DrZV_oQ","https://www.tiktok.com/embed/v2/6995520840431308038",
                 "https://www.tiktok.com/embed/v2/7060495050425273606?q=wholesome&t=1710819239073"],
+                
         urlPic: ["https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg"],
     },
 
     {
         key: "art",
-        urlVid: ["https://www.facebook.com/plugins/video.php?href=https://fb.watch/qDFKSnu7GN/"],
+        urlVid: ["https://www.facebook.com/plugins/video.php?href=https://fb.watch/qDFKSnu7GN/",
+                  "https://www.facebook.com/reel/1681890529008497"],
         urlPic: [meow],
     },
 
@@ -38,7 +40,9 @@ function VideoPopUp({topics, show, onClose}) {
                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=276637624499346",
                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1826813627749996",
                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=480596147405740",
-                countHigher],
+                countHigher,
+                "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/781676419964570"
+              ],
                 
         urlPic: ["https://cdn.acidcow.com/pics/20210518/1621360852_8linlv409m.jpg",],
     },
@@ -59,11 +63,9 @@ function VideoPopUp({topics, show, onClose}) {
         key: "surprise",
         urlVid: [ wholesome_us,
                  "https://www.tiktok.com/embed/v2/7060495050425273606?q=wholesome&t=1710819239073",
-                 "https://www.tiktok.com/embed/v2/6995520840431308038",
-                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=222451072977543"],
+                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/781676419964570",],
         urlPic: [ "https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg",
-                  cute, 
-                  mother],
+                  cute, mother, howls],
     },
 
   ]
