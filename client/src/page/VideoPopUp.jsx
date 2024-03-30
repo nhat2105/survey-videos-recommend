@@ -10,6 +10,7 @@ import f_slay from "../assets/f_slay.mp4"
 import breakdown from "../assets/amazingGreatJob.mp4"
 import mother from "../assets/mother.jpg"
 import howls from "../assets/howls.jpg"
+import cuteMeow from "../assets/cuteMeow.jpg"
 import '../style/modal.css'; 
 
 function VideoPopUp({topics, show, onClose}) {
@@ -22,9 +23,10 @@ function VideoPopUp({topics, show, onClose}) {
         key: "ani",
         urlVid: ["https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/watch/?v=1433215160639804",
                 "https://www.youtube.com/embed/sdS6DrZV_oQ","https://www.tiktok.com/embed/v2/6995520840431308038",
-                "https://www.tiktok.com/embed/v2/7060495050425273606?q=wholesome&t=1710819239073"],
+                "https://www.tiktok.com/embed/v2/7060495050425273606?q=wholesome&t=1710819239073", ],
                 
-        urlPic: ["https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg"],
+        urlPic: [//"https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg".
+                cuteMeow],
     },
 
     {
