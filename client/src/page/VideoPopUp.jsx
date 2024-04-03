@@ -11,6 +11,7 @@ import breakdown from "../assets/amazingGreatJob.mp4"
 import mother from "../assets/mother.jpg"
 import howls from "../assets/howls.jpg"
 import cuteMeow from "../assets/cuteMeow.jpg"
+import nothing from "../assets/doingnothing.jpg"
 import '../style/modal.css'; 
 
 function VideoPopUp({topics, show, onClose}) {
@@ -65,9 +66,11 @@ function VideoPopUp({topics, show, onClose}) {
         key: "surprise",
         urlVid: [ wholesome_us,
                  "https://www.tiktok.com/embed/v2/7060495050425273606?q=wholesome&t=1710819239073",
-                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/781676419964570",],
+                 "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/781676419964570",
+                ],
         urlPic: [ "https://i.pinimg.com/736x/78/a3/c7/78a3c780906c0e93e36872f7e153cf88.jpg",
-                  cute, mother, howls],
+                  cute, mother, howls, 
+                  nothing],
     },
 
   ]
